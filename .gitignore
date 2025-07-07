@@ -1,0 +1,46 @@
+# Node.js dependencies
+node_modules/
+
+# Environment files
+.env
+.env.*
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Diagnostic reports
+report.*.json
+
+# Runtime files
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage & build outputs
+coverage/
+*.lcov
+dist/
+build/
+
+# npm & lock files
+*.tgz
+.npm
+
+# Editor & OS files
+.DS_Store
+.vscode/
+*.sublime-*
+*.swp
+*.tmp
+*~
+
+# Optional ESLint cache
+.eslintcache
+
+# REPL history
+.node_repl_history
