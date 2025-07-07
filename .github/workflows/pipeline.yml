@@ -30,6 +30,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Export DB env for Node.js
+        run: |
+          echo "DB_HOST=${{ secrets.DB_HOST }}" >> .env
+          echo "DB_PORT=${{ secrets.DB_PORT }}" >> .env
+          echo "DB_USER=${{ secrets.DB_USER }}" >> .env
+          echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env
+          echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
