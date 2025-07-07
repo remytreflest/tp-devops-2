@@ -1,8 +1,6 @@
-// src/seed.js
-require('dotenv').config();
-const pool = require('../src/db');
+import 'dotenv/config';
+import pool from '../src/db.js';
 
-// Données à insérer (adapte selon ta table)
 const emails = [
   'alice@example.com',
   'bob@example.com',

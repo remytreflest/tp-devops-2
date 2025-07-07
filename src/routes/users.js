@@ -1,13 +1,14 @@
-const express = require('express');
-const router = express.Router();
-const pool = require('../db');
+import express from 'express';
+import pool from '../db.js';
 
-// POST /submit
+const router = express.Router();
+
+// POST /
 router.post('/', async (req, res) => {
   const { email } = req.body;
   let conn;
-  console.log("MON EMAIL")
-  console.log(email)
+  console.log("MON EMAIL");
+  console.log(email);
   try {
     conn = await pool.getConnection();
     await conn.query('INSERT INTO users (email) VALUES (?)', [email]);
@@ -43,4 +44,4 @@ router.get('/submissions', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

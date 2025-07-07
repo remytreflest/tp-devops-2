@@ -1,4 +1,4 @@
-const { test, expect } = require('@playwright/test');
+import { test, expect } from '@playwright/test';
 
 test.describe('Création d\'email', () => {
   test('Soumission du formulaire email', async ({ page }) => {

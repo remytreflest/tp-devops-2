@@ -1,7 +1,7 @@
-const request = require('supertest');
-const express = require('express');
-const router = require('../../src/routes/users'); // ou submissions.js selon le nom
-const pool = require('../../src/db');
+import request from 'supertest';
+import express from 'express';
+import router from '../../src/routes/users.js'; // ou submissions.js selon le nom
+import pool from '../../src/db.js';
 
 // Mock manuel du pool
 jest.mock('../../src/db');

@@ -11,7 +11,7 @@
     "test": "npx jest --verbose",
     "test:e2e": "playwright test tests/e2e/",
     "lint": "eslint .",
-    "seed": "node src/seed.js"
+    "seed": "node fixtures/seed.js"
   },
   "dependencies": {
     "@playwright/test": "^1.53.2",
