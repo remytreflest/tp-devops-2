@@ -1,10 +1,20 @@
+import { jest } from '@jest/globals';
 import request from 'supertest';
 import express from 'express';
-import router from '../../src/routes/users.js'; // ou submissions.js selon le nom
-import pool from '../../src/db.js';
 
-// Mock manuel du pool
-jest.mock('../../src/db');
+const mockPool = {
+  getConnection: jest.fn(),
+};
+
+let router;
+
+beforeAll(async () => {
+  await jest.unstable_mockModule('../../src/db.js', () => ({
+    default: mockPool,
+  }));
+  const mod = await import('../../src/routes/users.js');
+  router = mod.default;
+});
 
 describe('Routes / and /submissions', () => {
   let app;
@@ -20,7 +30,7 @@ describe('Routes / and /submissions', () => {
       query: jest.fn(),
       release: jest.fn(),
     };
-    pool.getConnection.mockResolvedValue(mockConn);
+    mockPool.getConnection.mockResolvedValue(mockConn);
 
     const response = await request(app)
       .post('/')
@@ -42,7 +52,7 @@ describe('Routes / and /submissions', () => {
       ]),
       release: jest.fn(),
     };
-    pool.getConnection.mockResolvedValue(mockConn);
+    mockPool.getConnection.mockResolvedValue(mockConn);
 
     const response = await request(app).get('/submissions');
 

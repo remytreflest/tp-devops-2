@@ -8,7 +8,7 @@
     "start": "node src/app.js",
     "dev": "nodemon src/app.js",
     "init-db": "node src/db.js",
-    "test": "npx jest --verbose",
+    "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --verbose",
     "test:e2e": "playwright test tests/e2e/",
     "lint": "eslint .",
     "seed": "node fixtures/seed.js"
