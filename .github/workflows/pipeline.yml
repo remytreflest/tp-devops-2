@@ -42,7 +42,7 @@ jobs:
         run: node src/init-db.js
 
       - name: Seed database
-        run: node src/seed.js
+        run: node fixtures/seed.js
 
       - name: Run ESLint
         run: npm run lint
